@@ -59,6 +59,7 @@
             this.btnMinus.TabIndex = 0;
             this.btnMinus.Text = "+/-";
             this.btnMinus.UseVisualStyleBackColor = true;
+            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
             // zero
             // 
@@ -265,6 +266,7 @@
             this.viewLabel.Name = "viewLabel";
             this.viewLabel.Size = new System.Drawing.Size(298, 30);
             this.viewLabel.TabIndex = 22;
+            this.viewLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Form1
             // 

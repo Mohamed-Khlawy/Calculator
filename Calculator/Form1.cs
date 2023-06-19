@@ -14,7 +14,9 @@ namespace Calculator
     public partial class Form1 : Form
     {
         string operation;
+        string isEqualOrNot;
         bool isOperatorClicked;
+        bool isViewTextHasValue;
         double FirstNumber;
         double SecondNumber;
         double result;
@@ -29,6 +31,7 @@ namespace Calculator
             isOperatorClicked = false;
             viewText.Text = "";
             viewLabel.Text = "";
+            result = 0;
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace Calculator
                 System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
                 operation = button.Text;
                 FirstNumber = double.Parse(viewText.Text);
-                viewLabel.Text += viewText.Text + " " + operation;
+                viewLabel.Text = viewText.Text + " " + operation;
                 viewText.Text = "";
                 isOperatorClicked = true;
             }
@@ -56,16 +59,38 @@ namespace Calculator
                 btnEqual_Click(sender, e);
                 System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
                 operation = button.Text;
-                viewLabel.Text = result.ToString() + " " + operation;
-                viewText.Text = result.ToString();
+                if (isViewTextHasValue)
+                {
+                    viewLabel.Text = result.ToString() + " " + operation;
+                    viewText.Text = result.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Second number is missing");
+                    return;
+                }
             }
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            
-            SecondNumber = double.Parse(viewText.Text);
-            switch(operation)
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            isEqualOrNot = button.Text;
+            if (isEqualOrNot == "=")
+            {
+                isOperatorClicked = false;
+            }
+            if (!string.IsNullOrEmpty(viewText.Text))
+            {
+                SecondNumber = double.Parse(viewText.Text);
+                isViewTextHasValue = true;
+            }
+            else
+            {
+                isViewTextHasValue = false;
+                return;
+            }
+            switch (operation)
             {
                 case "+":
                     result = FirstNumber + SecondNumber;
@@ -109,6 +134,14 @@ namespace Calculator
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            if (viewText.Text != "" && viewText.Text != "0")
+            {
+                viewText.Text = "-" + viewText.Text;
             }
         }
     }
