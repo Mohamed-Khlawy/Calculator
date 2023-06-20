@@ -48,6 +48,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.viewText = new System.Windows.Forms.TextBox();
             this.viewLabel = new System.Windows.Forms.Label();
+            this.btnCleanNumber = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMinus
@@ -239,9 +240,9 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(12, 139);
+            this.btnClear.Location = new System.Drawing.Point(164, 139);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(222, 70);
+            this.btnClear.Size = new System.Drawing.Size(70, 70);
             this.btnClear.TabIndex = 20;
             this.btnClear.Text = "CE";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -268,12 +269,24 @@
             this.viewLabel.TabIndex = 22;
             this.viewLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // btnCleanNumber
+            // 
+            this.btnCleanNumber.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCleanNumber.Location = new System.Drawing.Point(12, 139);
+            this.btnCleanNumber.Name = "btnCleanNumber";
+            this.btnCleanNumber.Size = new System.Drawing.Size(146, 70);
+            this.btnCleanNumber.TabIndex = 23;
+            this.btnCleanNumber.Text = "Clean Number";
+            this.btnCleanNumber.UseVisualStyleBackColor = true;
+            this.btnCleanNumber.Click += new System.EventHandler(this.btnCleanNumber_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(322, 524);
+            this.Controls.Add(this.btnCleanNumber);
             this.Controls.Add(this.viewLabel);
             this.Controls.Add(this.viewText);
             this.Controls.Add(this.btnClear);
@@ -324,6 +337,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox viewText;
         private System.Windows.Forms.Label viewLabel;
+        private System.Windows.Forms.Button btnCleanNumber;
     }
 }
 

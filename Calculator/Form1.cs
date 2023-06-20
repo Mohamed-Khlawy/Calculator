@@ -40,12 +40,19 @@ namespace Calculator
             string buttonText = button.Text;
 
             // Append the button text to the text box
-            viewText.Text = buttonText;
+            if (viewText.Text == "0")
+                viewText.Text = button.Text;
+            else if (viewText.Text == result.ToString())
+            {
+                viewText.Text = button.Text;
+            }
+            else
+                viewText.Text += buttonText;
         }
 
         private void Operator_Click(object sender, EventArgs e)
         {
-            if (!isOperatorClicked)
+            if (!isOperatorClicked && viewText.Text!="")
             {
                 System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
                 operation = button.Text;
@@ -59,13 +66,14 @@ namespace Calculator
                 btnEqual_Click(sender, e);
                 System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
                 operation = button.Text;
-                if (isViewTextHasValue)
+                if (isViewTextHasValue && result != 0)
                 {
                     viewLabel.Text = result.ToString() + " " + operation;
                     viewText.Text = result.ToString();
                 }
                 else
                 {
+                    viewLabel.Text = FirstNumber.ToString() + " " + operation;
                     MessageBox.Show("Second number is missing");
                     return;
                 }
@@ -80,10 +88,14 @@ namespace Calculator
             {
                 isOperatorClicked = false;
             }
-            if (!string.IsNullOrEmpty(viewText.Text))
+            if (!string.IsNullOrEmpty(viewText.Text) && viewText.Text != result.ToString())
             {
                 SecondNumber = double.Parse(viewText.Text);
                 isViewTextHasValue = true;
+            }
+            else if (!string.IsNullOrEmpty(viewText.Text) && viewText.Text == result.ToString())
+            {
+                return;
             }
             else
             {
@@ -139,10 +151,23 @@ namespace Calculator
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
-            if (viewText.Text != "" && viewText.Text != "0")
+            if (viewText.Text == "")
+            {
+                viewText.Text = "-";
+            }
+            else if (viewText.Text != "" && !viewText.Text.Contains("-") && viewText.Text != "0")
             {
                 viewText.Text = "-" + viewText.Text;
             }
+            else if(viewText.Text != "" && viewText.Text.Contains("-") && viewText.Text != "0")
+            {
+                viewText.Text = viewText.Text.Replace("-", "");
+            }
+        }
+
+        private void btnCleanNumber_Click(object sender, EventArgs e)
+        {
+            viewText.Text = "";
         }
     }
 }
