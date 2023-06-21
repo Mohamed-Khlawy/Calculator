@@ -15,6 +15,7 @@ namespace Calculator
     {
         string operation;
         string isEqualOrNot;
+        //string WhichButton;
         bool isOperatorClicked;
         bool isViewTextHasValue;
         double FirstNumber;
@@ -169,5 +170,64 @@ namespace Calculator
         {
             viewText.Text = "";
         }
+
+        private void dot_Click(object sender, EventArgs e)
+        {
+            if(!viewText.Text.Contains('.'))
+            {
+                if (viewText.Text == "" || viewText.Text==result.ToString())
+                {
+                    viewText.Text = "0" + ".";
+                }
+                else
+                {
+                    viewText.Text += ".";
+                }
+            }
+            else if(viewText.Text.Contains('.') && viewText.Text == result.ToString())
+            {
+                viewText.Text = "0" + ".";
+            }
+            else
+                return;
+        }
+
+        private void nine_MouseEnter(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            button.BackColor = btnCleanNumber.BackColor;
+        }
+
+        private void nine_MouseLeave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            button.BackColor = Color.DarkGray;
+        }
+
+        private void btnCleanNumber_MouseEnter(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            button.BackColor = zero.BackColor;
+        }
+
+        private void btnCleanNumber_MouseLeave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            button.BackColor = Color.Gray;
+        }
+
+        private void btnEqual_MouseEnter(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            button.BackColor = Color.DarkMagenta;
+        }
+
+        private void btnEqual_MouseLeave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            button.BackColor = Color.Purple;
+        }
+
+        
     }
 }
