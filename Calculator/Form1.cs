@@ -229,5 +229,74 @@ namespace Calculator
         }
 
         
+        private bool IsOperatorKey(Keys key)
+        {
+            // Define the operator keys that you want to accept
+            Keys[] operatorKeys = { Keys.Add, Keys.Subtract, Keys.Multiply, Keys.Divide };
+            return operatorKeys.Contains(key);
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Failed To Make Enter Key Act like btnEqual!!!
+
+            //if(e.KeyChar==(char)Keys.Enter)
+            //{
+            //    btnEqual.PerformClick();
+            //    return;
+            //}
+            switch (e.KeyChar.ToString())
+            {
+                case "0":
+                    zero.PerformClick();
+                    break;
+                case "1":
+                    one.PerformClick();
+                    break;
+                case "2":
+                    two.PerformClick();
+                    break;
+                case "3":
+                    three.PerformClick();
+                    break;
+                case "4":
+                    four.PerformClick();
+                    break;
+                case "5":
+                    five.PerformClick();
+                    break;
+                case "6":
+                    six.PerformClick();
+                    break;
+                case "7":
+                    seven.PerformClick();
+                    break;
+                case "8":
+                    eight.PerformClick();
+                    break;
+                case "9":
+                    nine.PerformClick();
+                    break;
+                case "+":
+                    btnAdd.PerformClick();
+                    break;
+                case "-":
+                    btnSubtract.PerformClick();
+                    break;
+                case "*":
+                    btnMultibly.PerformClick();
+                    break;
+                case "/":
+                    btnDivide.PerformClick();
+                    break;
+                case ".":
+                    dot.PerformClick();
+                    break;
+                case "=":
+                    btnEqual.PerformClick();
+                    break;
+            }
+            e.Handled = true; // Prevent further handling of the key event
+        }
     }
 }

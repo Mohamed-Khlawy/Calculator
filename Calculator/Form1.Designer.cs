@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnMinus = new System.Windows.Forms.Button();
             this.zero = new System.Windows.Forms.Button();
             this.dot = new System.Windows.Forms.Button();
@@ -35,7 +36,7 @@
             this.one = new System.Windows.Forms.Button();
             this.two = new System.Windows.Forms.Button();
             this.three = new System.Windows.Forms.Button();
-            this.btnPlus = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.four = new System.Windows.Forms.Button();
             this.five = new System.Windows.Forms.Button();
             this.six = new System.Windows.Forms.Button();
@@ -156,20 +157,20 @@
             this.three.MouseEnter += new System.EventHandler(this.nine_MouseEnter);
             this.three.MouseLeave += new System.EventHandler(this.nine_MouseLeave);
             // 
-            // btnPlus
+            // btnAdd
             // 
-            this.btnPlus.BackColor = System.Drawing.Color.Gray;
-            this.btnPlus.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlus.ForeColor = System.Drawing.Color.White;
-            this.btnPlus.Location = new System.Drawing.Point(240, 367);
-            this.btnPlus.Name = "btnPlus";
-            this.btnPlus.Size = new System.Drawing.Size(70, 70);
-            this.btnPlus.TabIndex = 8;
-            this.btnPlus.Text = "+";
-            this.btnPlus.UseVisualStyleBackColor = false;
-            this.btnPlus.Click += new System.EventHandler(this.Operator_Click);
-            this.btnPlus.MouseEnter += new System.EventHandler(this.btnCleanNumber_MouseEnter);
-            this.btnPlus.MouseLeave += new System.EventHandler(this.btnCleanNumber_MouseLeave);
+            this.btnAdd.BackColor = System.Drawing.Color.Gray;
+            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(240, 367);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(70, 70);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.Operator_Click);
+            this.btnAdd.MouseEnter += new System.EventHandler(this.btnCleanNumber_MouseEnter);
+            this.btnAdd.MouseLeave += new System.EventHandler(this.btnCleanNumber_MouseLeave);
             // 
             // four
             // 
@@ -381,7 +382,7 @@
             this.Controls.Add(this.six);
             this.Controls.Add(this.five);
             this.Controls.Add(this.four);
-            this.Controls.Add(this.btnPlus);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.three);
             this.Controls.Add(this.two);
             this.Controls.Add(this.one);
@@ -390,11 +391,14 @@
             this.Controls.Add(this.zero);
             this.Controls.Add(this.btnMinus);
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(340, 571);
             this.MinimumSize = new System.Drawing.Size(340, 571);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,7 +413,7 @@
         private System.Windows.Forms.Button one;
         private System.Windows.Forms.Button two;
         private System.Windows.Forms.Button three;
-        private System.Windows.Forms.Button btnPlus;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button four;
         private System.Windows.Forms.Button five;
         private System.Windows.Forms.Button six;
