@@ -20,8 +20,8 @@ This calculator project is developed using C# Windows Forms and provides a simpl
 5. Alternatively, you can use the keyboard to input numbers and operators:
    - Press the number keys (0-9) to enter numbers.
    - Press the operator keys (+, -, *, /) to perform operations.
-   - Press the Enter key to calculate the result.
-6. The current operation and the calculated result will be displayed in a label on the calculator interface.
+   - Press the Equal key to calculate the result.
+6. The current operation and the calculated result will be displayed in a TextBox on the calculator interface.
 
 ## Contributing
 
