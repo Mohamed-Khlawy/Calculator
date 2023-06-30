@@ -23,6 +23,15 @@ This calculator project is developed using C# Windows Forms and provides a simpl
    - Press the Equal key to calculate the result.
 6. The current operation and the calculated result will be displayed in a TextBox on the calculator interface.
 
+## Installation
+
+1. Open Setup_Calculator Folder
+2. Open Debug Folder
+3. Double-Click on The Setup_Calculator File
+4. Follow the instructions to complete installation
+5. Now you will find the Calculator shortcut on your desktop
+6. Double-Click on the shortcut and use your calculator 
+
 ## Contributing
 
 Contributions to the calculator project are welcome. If you have any improvements, bug fixes, or new features to suggest, please feel free to submit a pull request.
